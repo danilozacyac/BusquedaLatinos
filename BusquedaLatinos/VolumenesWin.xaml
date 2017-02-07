@@ -1,0 +1,50 @@
+﻿<telerik:RadWindow
+    x:Class="BusquedaLatinos.VolumenesWin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    Width="395"
+    Height="188"
+    Header="Volumenes"
+    Loaded="RadWindow_Loaded"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label
+            Margin="23,21,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Selecciona el volumen que deseas agregar al listado de tesis" />
+        <telerik:RadComboBox
+            x:Name="CbxVolumen"
+            Width="328"
+            Margin="23,63,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            DisplayMemberPath="Descripcion"
+            ItemsSource="{Binding}"
+            SelectedValuePath="Volumen1"
+            SelectionChanged="CbxVolumen_SelectionChanged" />
+        <Button
+            x:Name="BtnCancelar"
+            Width="90"
+            Margin="261,102,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BtnCancelar_Click"
+            Content="Cancelar"
+            IsCancel="True"
+            Style="{StaticResource BlueButton}" />
+        <Button
+            x:Name="BtnAceptar"
+            Width="90"
+            Margin="166,102,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BtnAceptar_Click"
+            Content="Aceptar"
+            IsCancel="True"
+            Style="{StaticResource BlueButton}" />
+
+    </Grid>
+</telerik:RadWindow>

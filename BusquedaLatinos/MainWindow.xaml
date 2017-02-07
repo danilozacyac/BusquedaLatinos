@@ -1,0 +1,172 @@
+﻿<Window
+    x:Class="BusquedaLatinos.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:UIControls="clr-namespace:UIControls;assembly=UIControls"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    Title="MainWindow"
+    Width="1000"
+    Height="700"
+    Loaded="Window_Loaded"
+    WindowState="Maximized" Icon="c6_IK5JVf_256px.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <telerik:RadRibbonView VerticalAlignment="Top" ApplicationName="Términos latinos">
+            <telerik:RadRibbonTab Header="General">
+                <telerik:RadRibbonGroup Header="Terminos">
+                    <telerik:RadRibbonButton
+                        x:Name="BtnAgregar"
+                        Click="BtnAgregar_Click"
+                        Content="Agregar"
+                        LargeImage="Resources/addTesis_128.png"
+                        Size="Large" />
+                    <telerik:RadRibbonButton
+                        x:Name="BtnEditar"
+                        Click="BtnEditar_Click"
+                        Content="Modificar"
+                        LargeImage="Resources/editTesis_128.png"
+                        Size="Large" />
+                    <telerik:RadRibbonButton
+                        x:Name="BtnEliminar"
+                        Click="BtnEliminar_Click"
+                        Content="Eliminar"
+                        LargeImage="Resources/delTesis_128.png"
+                        Size="Large" />
+                    <telerik:RadRibbonButton
+                        x:Name="BtnVolumenes"
+                        LargeImage="Resources/analyze.png"
+                        Size="Large" Click="BtnVolumenes_Click" >
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock HorizontalAlignment="Center" Text="Acumular tesis"/>
+                            <TextBlock HorizontalAlignment="Center" Text="recientes"/>
+                         </StackPanel>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="Búsquedas" Visibility="Collapsed">
+                    <telerik:RadRibbonButton
+                        x:Name="BtnSinIndice"
+                        Click="BtnSinIndice_Click"
+                        Content="Sin Índices"
+                        Size="Large" />
+                    <telerik:RadRibbonButton
+                        x:Name="BtnConIndice"
+                        Click="BtnConIndice_Click"
+                        Content="Con Índices"
+                        Size="Large" />
+
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="Procesos" Visibility="Collapsed">
+                    <telerik:RadRibbonButton
+                        x:Name="BtnIndexa"
+                        Click="BtnIndexa_Click"
+                        Content="Indexar"
+                        Size="Large" />
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+        </telerik:RadRibbonView>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".4*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <telerik:RadListBox
+                x:Name="LstTerminos"
+                Margin="5,50,5,10"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                DisplayMemberPath="Termino"
+                FontSize="16"
+                ItemsSource="{Binding}"
+                SelectionChanged="LstTerminos_SelectionChanged" />
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".25*" />
+                    <RowDefinition Height="80" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="Definición">
+                        <TextBox
+                            x:Name="TxtDefinicion"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            IsEnabled="False"
+                            TextWrapping="Wrap" />
+                    </GroupBox>
+                    <GroupBox Grid.Column="1" Header="Bibliografía">
+                        <TextBox
+                            x:Name="TxtBiblio"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            IsEnabled="False"
+                            TextWrapping="Wrap" />
+                    </GroupBox>
+                </Grid>
+
+                <Label
+                    x:Name="LblTotalRelaciones"
+                    Grid.Row="1"
+                    Margin="0,15,30,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Content="0"
+                    FontSize="16"
+                    FontWeight="Bold" />
+
+                <telerik:RadGridView
+                    x:Name="GTesis"
+                    Grid.Row="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding}"
+                    MouseDoubleClick="GTesis_MouseDoubleClick"
+                    SelectionChanged="GTesis_SelectionChanged"
+                    ShowGroupPanel="False">
+                    <telerik:RadGridView.Columns>
+                        <!--<CustomColumn:MyColumnNumber Width="30"
+                                                 CellStyle="{StaticResource ColumnaNumerica}"
+                                                 Header="#" />-->
+                        <telerik:GridViewDataColumn
+                            Width="100"
+                            DataMemberBinding="{Binding Ius}"
+                            Header="Reg. Digital"
+                            IsFilterable="False" />
+                        <telerik:GridViewDataColumn
+                            Width="*"
+                            DataMemberBinding="{Binding Rubro}"
+                            Header="Rubro"
+                            IsFilterable="False" />
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+
+            </Grid>
+
+            <UIControls:SearchTextBox
+                x:Name="SearchTermino"
+                Margin="10,8,10,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top"
+                LabelText="Buscar término..."
+                Search="SearchTermino_Search"
+                TextWrapping="Wrap" />
+
+        </Grid>
+
+
+
+
+    </Grid>
+</Window>

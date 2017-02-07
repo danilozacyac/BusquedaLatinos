@@ -1,0 +1,83 @@
+﻿<telerik:RadWindow
+    x:Class="BusquedaLatinos.Formularios.TerminoWin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    Width="502"
+    Height="533"
+    Header="Terminos"
+    Loaded="RadWindow_Loaded"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label
+            x:Name="LblTermino"
+            Margin="26,29,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Termino por"
+            FontSize="16"
+            FontWeight="Bold" />
+        <TextBox
+            x:Name="TxtTermino"
+            Width="430"
+            Height="23"
+            Margin="26,76,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
+        <Button
+            x:Name="BtnCancelar"
+            Width="90"
+            Margin="366,457,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BtnCancelar_Click"
+            Content="Cancelar"
+            IsCancel="True"
+            Style="{StaticResource BlueButton}" />
+        <Button
+            x:Name="BtnGuardar"
+            Width="90"
+            Margin="271,457,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BtnGuardar_Click"
+            Content="Guardar"
+            IsDefault="True"
+            Style="{StaticResource BlueButton}" />
+        <Label
+            x:Name="LblTermino_Copy"
+            Margin="26,123,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Definición:"
+            FontSize="16"
+            FontWeight="Bold" />
+        <TextBox
+            x:Name="TxtDefinicion"
+            Width="430"
+            Height="105"
+            Margin="26,159,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
+        <Label
+            x:Name="LblTermino_Copy1"
+            Margin="26,285,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Bibliografía:"
+            FontSize="16"
+            FontWeight="Bold" />
+        <TextBox
+            x:Name="TxtBibliografia"
+            Width="430"
+            Height="105"
+            Margin="26,321,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
+
+    </Grid>
+</telerik:RadWindow>

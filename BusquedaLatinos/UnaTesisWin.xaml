@@ -1,0 +1,387 @@
+﻿<telerik:RadWindow
+    x:Class="BusquedaLatinos.UnaTesisWin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:MantesisApi.Converters;assembly=MantesisApi"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    Width="1200"
+    Height="1000"
+    Header="Detalle de la tesis"
+    Loaded="Window_Loaded"
+    WindowState="Maximized">
+    <telerik:RadWindow.Resources>
+        <converter:EpocaConverter x:Key="epocaConv" />
+        <!--<converter:VolumenConverter x:Key="volumConv" />-->
+        <converter:MateriaConverter x:Key="materiaConv" />
+        <converter:InstanciaConverter x:Key="instanConv" />
+        <converter:FuenteConverter x:Key="fuenteConv" />
+    </telerik:RadWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0" />
+        </Grid.RowDefinitions>
+        <telerik:RadRibbonView
+            x:Name="MainRibbon"
+            Grid.Row="0"
+            ApplicationButtonVisibility="Collapsed"
+            ApplicationName=""
+            WindowIconVisibility="Visible">
+
+            <telerik:RadRibbonTab>
+                <telerik:RadRibbonGroup Name="Navega" Header="Navegar">
+                    <StackPanel Orientation="Horizontal">
+                        <telerik:RadRibbonButton
+                            Name="RbtnInicio"
+                            Click="RibbonButton_Click"
+                            Content="Inicio"
+                            LargeImage="Resources/leftdArrow.png"
+                            Size="Large" />
+                        <telerik:RadRibbonButton
+                            Name="RbtnPrevious"
+                            Click="RibbonButton_Click"
+                            Content="Anterior"
+                            LargeImage="Resources/leftsArrow.png"
+                            Size="Large" />
+                        <telerik:RadRibbonButton
+                            Name="RbtnNext"
+                            Click="RibbonButton_Click"
+                            Content="Siguiente"
+                            LargeImage="Resources/rightsArrow.png"
+                            Size="Large" />
+                        <telerik:RadRibbonButton
+                            Name="RbtnFin"
+                            Click="RibbonButton_Click"
+                            Content="Final"
+                            LargeImage="Resources/rightdArrow.png"
+                            Size="Large" />
+                        <StackPanel Orientation="Vertical">
+                            <Label
+                                Content="      Registro:   "
+                                FontSize="14"
+                                FontWeight="Bold" />
+                            <Label
+                                x:Name="LblContador"
+                                Content="      Registro:   "
+                                FontSize="14"
+                                FontWeight="Bold" />
+                        </StackPanel>
+                    </StackPanel>
+
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Name="DocsRel" Header="Relaciones">
+                    <telerik:RadRibbonButton
+                        x:Name="BtnDelRelacion"
+                        Height="68"
+                        VerticalAlignment="Bottom"
+                        Click="BtnDelRelacion_Click"
+                        LargeImage="Resources/flatcross_128.png"
+                        Size="Large">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock HorizontalAlignment="Center" Text="Eliminar" />
+                            <TextBlock HorizontalAlignment="Center" Text="relación" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="Exportar">
+                    <StackPanel Orientation="Horizontal">
+                        <telerik:RadRibbonButton
+                            Name="RbtnClipboard"
+                            Click="RibbonButton_Click"
+                            Content="Portapapeles"
+                            LargeImage="Resources/clipboard.png"
+                            Size="Large" />
+
+                        <telerik:RadRibbonButton
+                            Name="RBtnWord"
+                            Click="ExportarGroupClick"
+                            Content="Word"
+                            LargeImage="Resources/word_256.png"
+                            Size="Large"
+                            SmallImage="Resources/word_128.png" />
+                    </StackPanel>
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+        </telerik:RadRibbonView>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".25*" MinWidth="300" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <TabItem Header="Datos Generales">
+                        <Grid Background="#FFE5E5E5">
+                            <Label
+                                Margin="10,10,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Content="Reg. Digital" />
+                            <Label
+                                Margin="10,110,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Content="Época:" />
+                            <Label
+                                Margin="11,41,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Content="Clave o número de identificación:" />
+                            <GroupBox
+                                Width="269"
+                                Height="82"
+                                Margin="11,240,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Header="Tipo de Tesis"
+                                IsEnabled="{Binding IsEnable, Mode=TwoWay}">
+                                <Grid>
+                                    <RadioButton
+                                        x:Name="RbtJurisp"
+                                        Width="113"
+                                        Height="28"
+                                        Margin="0,7,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Content=" Jurisprudencia"
+                                        IsEnabled="False" />
+                                    <RadioButton
+                                        x:Name="RbtAislada"
+                                        Width="80"
+                                        Height="28"
+                                        Margin="139,7,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Content=" T. Aislada"
+                                        IsEnabled="False" />
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox
+                                Width="270"
+                                Height="240"
+                                Margin="10,489,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Header="Materias">
+                                <Grid>
+                                    <TextBox
+                                        x:Name="TxtMat1"
+                                        Width="200"
+                                        Height="25"
+                                        Margin="15,25,15,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        IsReadOnly="True"
+                                        Text="{Binding Materia1, Converter={StaticResource materiaConv}}" />
+                                    <TextBox
+                                        x:Name="TxtMat2"
+                                        Width="200"
+                                        Height="25"
+                                        Margin="15,75,15,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        IsReadOnly="True"
+                                        Text="{Binding Materia2, Converter={StaticResource materiaConv}}" />
+                                    <TextBox
+                                        x:Name="TxtMat3"
+                                        Width="200"
+                                        Height="25"
+                                        Margin="15,125,15,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        IsReadOnly="True"
+                                        Text="{Binding Materia3, Converter={StaticResource materiaConv}}" />
+                                </Grid>
+                            </GroupBox>
+                            <TextBox
+                                x:Name="TxtIus"
+                                Height="23"
+                                Margin="148,13,10,0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top"
+                                IsReadOnly="True"
+                                Text="{Binding Ius}"
+                                TextWrapping="Wrap" />
+                            <TextBox
+                                x:Name="TxtEpoca"
+                                Height="23"
+                                Margin="148,110,10,0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top"
+                                IsReadOnly="True"
+                                Text="{Binding EpocaInt, Converter={StaticResource epocaConv}}"
+                                TextWrapping="Wrap" />
+                            <TextBox
+                                x:Name="TxtTesis"
+                                Height="23"
+                                Margin="148,67,10,0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top"
+                                IsReadOnly="True"
+                                Text="{Binding Tesis}"
+                                TextWrapping="Wrap" />
+                            <Label
+                                Margin="10,150,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Content="Volumen:" />
+                            <TextBox
+                                x:Name="TxtVolumen"
+                                Height="23"
+                                Margin="148,150,10,0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top"
+                                IsReadOnly="True"
+                                Text="{Binding Volumen}"
+                                TextWrapping="Wrap" />
+                            <Label
+                                Margin="10,194,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Content="Página:" />
+                            <TextBox
+                                x:Name="TxtPagina"
+                                Width="120"
+                                Height="23"
+                                Margin="148,194,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                IsReadOnly="True"
+                                Text="{Binding Pagina}"
+                                TextWrapping="Wrap" />
+                            <Label
+                                Margin="11,337,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Content="Instancia:" />
+                            <TextBox
+                                x:Name="TxtInstancia"
+                                Width="257"
+                                Height="23"
+                                Margin="11,368,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                IsReadOnly="True"
+                                Text="{Binding Sala, Converter={StaticResource instanConv}}"
+                                TextWrapping="Wrap" />
+                            <Label
+                                Margin="10,411,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Content="Fuente:" />
+                            <TextBox
+                                x:Name="TxtFuente"
+                                Width="257"
+                                Height="23"
+                                Margin="10,442,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                IsReadOnly="True"
+                                Text="{Binding Fuente, Converter={StaticResource fuenteConv}}"
+                                TextWrapping="Wrap" />
+
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Otros Textos">
+                        <Grid Background="#FFE5E5E5">
+                            <Label
+                                Margin="10,10,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Content="Genealogía:" />
+                            <TextBox
+                                x:Name="TxtGenealogia"
+                                Width="270"
+                                Height="151"
+                                Margin="10,36,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                AcceptsReturn="True"
+                                IsReadOnly="{Binding IsReadOnly, Mode=TwoWay}"
+                                Text="{Binding Genealogia, Mode=TwoWay}"
+                                TextWrapping="WrapWithOverflow"
+                                VerticalScrollBarVisibility="Auto" />
+                            <Label
+                                Margin="10,208,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Content="Observaciones:" />
+                            <TextBox
+                                x:Name="TxtObservaciones"
+                                Width="270"
+                                Height="146"
+                                Margin="10,234,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                AcceptsReturn="True"
+                                IsReadOnly="{Binding IsReadOnly, Mode=TwoWay}"
+                                Text="{Binding Observaciones, Mode=TwoWay}"
+                                TextWrapping="WrapWithOverflow"
+                                VerticalScrollBarVisibility="Auto" />
+                            <Label
+                                Margin="10,403,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Content="Concordancia:" />
+                            <TextBox
+                                x:Name="TxtConcordancia"
+                                Width="270"
+                                Height="166"
+                                Margin="10,428,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                AcceptsReturn="True"
+                                IsReadOnly="{Binding IsReadOnly, Mode=TwoWay}"
+                                Text="{Binding Concordancia, Mode=TwoWay}"
+                                TextWrapping="WrapWithOverflow"
+                                VerticalScrollBarVisibility="Auto" />
+                        </Grid>
+                    </TabItem>
+
+                </TabControl>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+
+                <FlowDocumentScrollViewer
+                    x:Name="flowDocViewer"
+                    Margin="0,0,0,40"
+                    Background="#FF414141"
+                    Zoom="130">
+                    <FlowDocument
+                        x:Name="flowDoc"
+                        FontFamily="Arial"
+                        FontWeight="Normal"
+                        Foreground="Black" />
+                </FlowDocumentScrollViewer>
+
+                <!--<icp:FindControl Grid.Row="0"
+                                 Width="350"
+                                 Height="25"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Bottom"
+                                 BackgroundText="Buscar palabra..."
+                                 BackgroundTextBrush="Gray"
+                                 BorderThickness="1"
+                                 Document="{Binding ElementName=flowDocViewer,
+                                                    Path=Document}"
+                                 HighlightedParagraphBrush="LightSkyBlue"
+                                 HighlightedTextBrush="Red"
+                                 NextPreviousButtonsForegroundBrush="Blue"
+                                 TextBoxBackgroundBrush="White" />-->
+
+            </Grid>
+
+
+
+        </Grid>
+        <StatusBar Grid.Row="2" />
+
+
+    </Grid>
+
+</telerik:RadWindow>
