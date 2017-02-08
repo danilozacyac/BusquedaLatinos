@@ -36,6 +36,8 @@ namespace BusquedaLatinos.Formularios
 
         private void RadWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            TxtTermino.Focus();
+
             LblTermino.Content = String.Format("Término por {0}", (isUpdate) ? "actualizar" : "agregar");
 
             if (isUpdate)

@@ -77,7 +77,7 @@ namespace BusquedaLatinos.Model
                 OleDbCommand cmd = new OleDbCommand(sqlQuery, connection);
                 cmd.Parameters.AddWithValue("@IdTermino", termino.IdTermino);
                 cmd.Parameters.AddWithValue("@Termino", termino.Termino);
-                cmd.Parameters.AddWithValue("@TerminoStr", termino.Termino);
+                cmd.Parameters.AddWithValue("@TerminoStr", termino.TerminoStr);
                 cmd.Parameters.AddWithValue("@Definicion", termino.Definicion);
                 cmd.Parameters.AddWithValue("@Bibliografia", termino.Bibliografia);
                 cmd.ExecuteNonQuery();
