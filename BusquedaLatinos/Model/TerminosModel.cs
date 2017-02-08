@@ -6,6 +6,7 @@ using System.Data.OleDb;
 using System.Linq;
 using BusquedaLatinos.Dto;
 using ScjnUtilities;
+using System.Collections.ObjectModel;
 
 namespace BusquedaLatinos.Model
 {
@@ -14,9 +15,9 @@ namespace BusquedaLatinos.Model
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["Catalogo"].ConnectionString;
         private readonly string connectionSql = ConfigurationManager.ConnectionStrings["Base"].ConnectionString;
 
-        public List<Terminos> GetTerminos()
+        public ObservableCollection<Terminos> GetTerminos()
         {
-            List<Terminos> catTerminos = new List<Terminos>();
+            ObservableCollection<Terminos> catTerminos = new ObservableCollection<Terminos>();
             string sOleDb;
 
             OleDbCommand cmd;
@@ -107,8 +108,7 @@ namespace BusquedaLatinos.Model
         {
             OleDbConnection connection = new OleDbConnection(connectionString);
             OleDbDataAdapter dataAdapter;
-            OleDbCommand cmd;
-            cmd = connection.CreateCommand();
+            OleDbCommand cmd = connection.CreateCommand();
             cmd.Connection = connection;
 
             bool insertCompleted = false;
@@ -120,7 +120,7 @@ namespace BusquedaLatinos.Model
                 DataSet dataSet = new DataSet();
                 DataRow dr;
 
-                string sqlQuery = "SELECT * FROM Terminos WHERE IdTermino = @IdTermino";
+                const string sqlQuery = "SELECT * FROM Terminos WHERE IdTermino = @IdTermino";
 
                 dataAdapter = new OleDbDataAdapter();
                 dataAdapter.SelectCommand = new OleDbCommand(sqlQuery, connection);
@@ -292,8 +292,7 @@ namespace BusquedaLatinos.Model
         {
             OleDbConnection connection = new OleDbConnection(connectionString);
             OleDbDataAdapter dataAdapter;
-            OleDbCommand cmd;
-            cmd = connection.CreateCommand();
+            OleDbCommand cmd = connection.CreateCommand();
             cmd.Connection = connection;
 
             bool insertCompleted = false;
@@ -305,7 +304,7 @@ namespace BusquedaLatinos.Model
                 DataSet dataSet = new DataSet();
                 DataRow dr;
 
-                string sqlQuery = "SELECT * FROM RelTesis WHERE IdTermino = @IdTermino AND Ius = @Ius";
+                const string sqlQuery = "SELECT * FROM RelTesis WHERE IdTermino = @IdTermino AND Ius = @Ius";
 
                 dataAdapter = new OleDbDataAdapter();
                 dataAdapter.SelectCommand = new OleDbCommand(sqlQuery, connection);

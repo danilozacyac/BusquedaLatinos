@@ -1,20 +1,12 @@
-﻿using BusquedaLatinos.Dto;
+﻿using System;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using BusquedaLatinos.Dto;
 using BusquedaLatinos.Model;
 using BusquedaLatinos.Singleton;
 using ScjnUtilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Telerik.Windows.Controls;
+using BusquedaLatinos.Indices;
 
 namespace BusquedaLatinos.Formularios
 {
@@ -27,6 +19,7 @@ namespace BusquedaLatinos.Formularios
         private Terminos termino;
         private bool isUpdate = false;
 
+        private bool textChanged = false;
 
         public TerminoWin()
         {
@@ -55,7 +48,15 @@ namespace BusquedaLatinos.Formularios
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (textChanged)
+            {
+                MessageBoxResult result = MessageBox.Show("¿Estás seguro que deseas salir sin guardar los cambios? Los cambios no guardados no se podrán recuperar",
+                    "Atención:", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                    this.Close();
+
+            }
         }
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
@@ -80,6 +81,11 @@ namespace BusquedaLatinos.Formularios
 
                 if (complete)
                 {
+                    termino.Iuses = new MyLucene().SearchIuses(termino.Termino.ToLower());
+
+                    foreach (int ius in termino.Iuses.Distinct())
+                        new TerminosModel().InsertaRelacion(termino, ius);
+
                     TerminosSingleton.Terminos.Add(termino);
                     this.Close();
                 }
@@ -87,6 +93,11 @@ namespace BusquedaLatinos.Formularios
                     MessageBox.Show("No se pudo completar la operación, favor de volver a intentarlo", "Atención", MessageBoxButton.OK, MessageBoxImage.Information);
             }
          
+        }
+
+        private void TxtTextChanged(object sender, TextChangedEventArgs e)
+        {
+            textChanged = true;
         }
     }
 }

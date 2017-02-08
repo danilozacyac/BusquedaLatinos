@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using Telerik.Windows.Controls;
 using BusquedaLatinos.Formularios;
 using MantesisApi.Dto;
+using System.Collections.ObjectModel;
 
 namespace BusquedaLatinos
 {
@@ -70,7 +71,7 @@ namespace BusquedaLatinos
         {
             TesisModel model = new TesisModel();
 
-            List<Terminos> terminos = new TerminosModel().GetTerminos();
+            ObservableCollection<Terminos> terminos = new TerminosModel().GetTerminos();
 
             int contador = 1;
             foreach (Terminos termino in terminos)
@@ -98,15 +99,17 @@ namespace BusquedaLatinos
                 {
                     new TerminosModel().GetTesisRelacionadas(selectedTermino);
 
-                    selectedTermino.Tesis = new TesisModel().GetDetalleTesisRel(selectedTermino.Iuses);
+                    if (selectedTermino.Iuses.Count > 0)
+                    {
+                        selectedTermino.Tesis = new TesisModel().GetDetalleTesisRel(selectedTermino.Iuses);
+                        LblTotalRelaciones.Content = String.Format("{0} tesis relacionadas", selectedTermino.Tesis.Count());
+                    }
+                    else
+                    {
+                        LblTotalRelaciones.Content = "No hay tesis relacionadas con este término";
+                    }
                 }
                
-
-                //MyLucene lucene = new MyLucene();
-                //selectedTermino.Tesis = lucene.Search(selectedTermino.Termino);
-
-                LblTotalRelaciones.Content = String.Format("{0} tesis relacionadas", selectedTermino.Tesis.Count());
-
                 GTesis.DataContext = selectedTermino.Tesis;
             }
 
@@ -174,7 +177,7 @@ namespace BusquedaLatinos
 
         private void GTesis_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            UnaTesisWin unaTesisWin = new UnaTesisWin(selectedTermino.Tesis.ToObservableCollection(), selectedTermino.Tesis.ToList().IndexOf(selectedTesis),selectedTermino);
+            UnaTesisWin unaTesisWin = new UnaTesisWin(selectedTermino.Tesis, selectedTermino.Tesis.ToList().IndexOf(selectedTesis),selectedTermino);
             unaTesisWin.ShowDialog();
         }
 

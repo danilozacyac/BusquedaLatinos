@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Configuration;
 using System.Linq;
 using Lucene.Net.Analysis;
 using Lucene.Net.Analysis.Standard;
@@ -9,7 +9,6 @@ using Lucene.Net.Index;
 using Lucene.Net.QueryParsers;
 using Lucene.Net.Search;
 using Lucene.Net.Store;
-using System.Configuration;
 
 namespace BusquedaLatinos.Indices
 {
@@ -18,7 +17,7 @@ namespace BusquedaLatinos.Indices
         private Analyzer analyzer = new StandardAnalyzer(new string[]{"desde"});
         private Directory luceneIndexDirectory;
         private IndexWriter writer;
-        private readonly string indexPath = ConfigurationManager.AppSettings["IndexPath"].ToString();
+        private readonly string indexPath = ConfigurationManager.AppSettings["IndexPath"];
 
         List<TesisIndx> listaTesis;
 
@@ -32,7 +31,10 @@ namespace BusquedaLatinos.Indices
 
         }
 
-       
+       /// <summary>
+       /// Acumula el índice de las tesis que mes a mes se van ingresando a través del 
+       /// sistema de mantenimiento
+       /// </summary>
         public void BuildIndex()
         {
             try
@@ -81,7 +83,7 @@ namespace BusquedaLatinos.Indices
             parser.SetEnablePositionIncrements(false);
 
 
-            Query query = parser.Parse("\"" + searchTerm + "\"");
+            Query query = parser.Parse(String.Format("\"{0}\"", searchTerm));
 
             Console.WriteLine(query.ToString());
             Hits hitsFound = searcher.Search(query);
@@ -108,7 +110,7 @@ namespace BusquedaLatinos.Indices
             parser = new QueryParser("TextoIndx", analyzer);
             parser.SetEnablePositionIncrements(false);
 
-            query = parser.Parse("\"" + searchTerm + "\"");
+            query = parser.Parse(String.Format("\"{0}\"", searchTerm));
             Console.WriteLine(query.ToString());
             hitsFound = searcher.Search(query);
 
@@ -143,7 +145,7 @@ namespace BusquedaLatinos.Indices
             parser.SetEnablePositionIncrements(false);
 
 
-            Query query = parser.Parse("\"" + searchTerm + "\"");
+            Query query = parser.Parse(String.Format("\"{0}\"", searchTerm));
 
             Console.WriteLine(query.ToString());
             Hits hitsFound = searcher.Search(query);
@@ -169,7 +171,7 @@ namespace BusquedaLatinos.Indices
             parser = new QueryParser("TextoIndx", analyzer);
             parser.SetEnablePositionIncrements(false);
 
-            query = parser.Parse("\"" + searchTerm + "\"");
+            query = parser.Parse(String.Format("\"{0}\"", searchTerm));
             Console.WriteLine(query.ToString());
             hitsFound = searcher.Search(query);
 
@@ -262,6 +264,12 @@ namespace BusquedaLatinos.Indices
         //}
 
 
+        /// <summary>
+        /// Busca en el índice previamente construido las tesis que tengan coincidencia ya sea en el Rubro o Texto
+        /// del término buscado
+        /// </summary>
+        /// <param name="searchTerm"></param>
+        /// <returns></returns>
         public List<int> SearchIuses(string searchTerm)
         {
             List<int> results = new List<int>();
@@ -271,7 +279,7 @@ namespace BusquedaLatinos.Indices
             parser.SetEnablePositionIncrements(false);
 
 
-            Query query = parser.Parse("\"" + searchTerm + "\"");
+            Query query = parser.Parse(String.Format("\"{0}\"", searchTerm));
 
            Console.WriteLine(query.ToString());
             Hits hitsFound = searcher.Search(query);
@@ -296,7 +304,7 @@ namespace BusquedaLatinos.Indices
             parser = new QueryParser("TextoIndx", analyzer);
             parser.SetEnablePositionIncrements(false);
 
-            query = parser.Parse("\"" + searchTerm + "\"");
+            query = parser.Parse(String.Format("\"{0}\"", searchTerm));
             Console.WriteLine(query.ToString());
             hitsFound = searcher.Search(query);
 

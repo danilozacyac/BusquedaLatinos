@@ -5,13 +5,14 @@ using System.Linq;
 using BusquedaLatinos.Dto;
 using Microsoft.Office.Interop.Word;
 using ScjnUtilities;
+using System.Collections.ObjectModel;
 
 namespace BusquedaLatinos
 {
     public class WordClass
     {
 
-        List<Terminos> terminos;
+        ObservableCollection<Terminos> terminos;
         private readonly string tituloObra;
         private string presentacion;
 
@@ -42,7 +43,7 @@ namespace BusquedaLatinos
         readonly string filePath;
 
 
-        public WordClass(List<Terminos> terminos, string filePath)
+        public WordClass(ObservableCollection<Terminos> terminos, string filePath)
         {
             this.terminos = terminos;
             this.filePath = filePath;

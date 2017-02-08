@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using BusquedaLatinos.Indices;
-using ScjnUtilities;
-using System.Collections.ObjectModel;
 using MantesisApi.Dto;
-using MantesisApi.Model;
+using ScjnUtilities;
 
 namespace BusquedaLatinos.Model
 {
@@ -140,7 +139,7 @@ namespace BusquedaLatinos.Model
             {
                 connection.Open();
 
-                sSql = "SELECT IUS FROM Tesis WHERE (RIndx Like '% " + termino + " %' OR TIndx Like '% " + termino + " %') AND Parte <> 99";
+                sSql = String.Format("SELECT IUS FROM Tesis WHERE (RIndx Like '% {0} %' OR TIndx Like '% {0} %') AND Parte <> 99", termino);
                 cmd = new SqlCommand(sSql, connection);
                 reader = cmd.ExecuteReader();
 
@@ -194,9 +193,7 @@ namespace BusquedaLatinos.Model
 
                 while (reader.Read())
                 {
-                    TesisDto tesisDto = new TesisDto();
-                    tesisDto.Ius = System.Convert.ToInt32(reader["ius"]);
-                    tesisDto.Rubro = reader["rubro"].ToString();
+                    TesisDto tesisDto = new TesisDto() { Ius = Convert.ToInt32(reader["ius"]), Rubro = reader["rubro"].ToString() };
 
                     listaTesis.Add(tesisDto);
 

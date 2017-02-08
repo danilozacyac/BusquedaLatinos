@@ -56,7 +56,7 @@ namespace BusquedaLatinos.Controllers
             //unaTesis.DataContext = tesisIndice;
 
             if (unaTesis.ListaTesis != null && unaTesis.ListaTesis.Count > 1)
-                unaTesis.LblContador.Content = "     " + (unaTesis.PosActual + 1) + " / " + unaTesis.ListaTesis.Count;
+                unaTesis.LblContador.Content = String.Format("     {0} / {1}", (unaTesis.PosActual + 1), unaTesis.ListaTesis.Count);
             else
             {
                 unaTesis.LblContador.Content = "    1 / 1";
@@ -86,18 +86,18 @@ namespace BusquedaLatinos.Controllers
 
         public void LoadNoBindingValues()
         {
-            unaTesis.RbtAislada.FontWeight = System.Windows.FontWeights.Normal;
-            unaTesis.RbtJurisp.FontWeight = System.Windows.FontWeights.Normal;
+            unaTesis.RbtAislada.FontWeight = FontWeights.Normal;
+            unaTesis.RbtJurisp.FontWeight = FontWeights.Normal;
 
             if (tesisMostrada.TaTj == 0)
             {
                 unaTesis.RbtAislada.IsChecked = true;
-                unaTesis.RbtAislada.FontWeight = System.Windows.FontWeights.Bold;
+                unaTesis.RbtAislada.FontWeight = FontWeights.Bold;
             }
             else
             {
                 unaTesis.RbtJurisp.IsChecked = true;
-                unaTesis.RbtJurisp.FontWeight = System.Windows.FontWeights.Bold;
+                unaTesis.RbtJurisp.FontWeight = FontWeights.Bold;
             }
 
         }
@@ -162,7 +162,7 @@ namespace BusquedaLatinos.Controllers
             TesisDto tesis = unaTesis.ListaTesis[unaTesis.PosActual];
             this.LoadCompleteTesis(tesis);
 
-            unaTesis.LblContador.Content = "     " + (unaTesis.PosActual + 1) + " / " + unaTesis.ListaTesis.Count;
+            unaTesis.LblContador.Content = String.Format("     {0} / {1}", (unaTesis.PosActual + 1), unaTesis.ListaTesis.Count);
         }
 
         public void TesisPrevious()
@@ -174,7 +174,7 @@ namespace BusquedaLatinos.Controllers
                 TesisDto tesis = unaTesis.ListaTesis[unaTesis.PosActual];
                 this.LoadCompleteTesis(tesis);
 
-                unaTesis.LblContador.Content = "     " + (unaTesis.PosActual + 1) + " / " + unaTesis.ListaTesis.Count;
+                unaTesis.LblContador.Content = String.Format("     {0} / {1}", (unaTesis.PosActual + 1), unaTesis.ListaTesis.Count);
             }
         }
 
@@ -190,7 +190,7 @@ namespace BusquedaLatinos.Controllers
                 this.LoadCompleteTesis(tesis);
                 //unaTesisModel.DbConnectionClose();
 
-                unaTesis.LblContador.Content = "     " + (unaTesis.PosActual + 1) + " / " + unaTesis.ListaTesis.Count;
+                unaTesis.LblContador.Content = String.Format("     {0} / {1}", (unaTesis.PosActual + 1), unaTesis.ListaTesis.Count);
             }
         }
 
@@ -204,7 +204,7 @@ namespace BusquedaLatinos.Controllers
             //unaTesisModel.DbConnectionOpen();
             this.LoadCompleteTesis(tesis);
             //unaTesisModel.DbConnectionClose();
-            unaTesis.LblContador.Content = "     " + (unaTesis.PosActual + 1) + " / " + unaTesis.ListaTesis.Count;
+            unaTesis.LblContador.Content = String.Format("     {0} / {1}", (unaTesis.PosActual + 1), unaTesis.ListaTesis.Count);
         }
 
 

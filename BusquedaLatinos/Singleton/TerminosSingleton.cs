@@ -20,7 +20,7 @@ namespace BusquedaLatinos.Singleton
             get
             {
                 if (termimnos == null)
-                    termimnos = new TerminosModel().GetTerminos().ToObservableCollection();
+                    termimnos = new TerminosModel().GetTerminos();
 
                 return termimnos;
             }

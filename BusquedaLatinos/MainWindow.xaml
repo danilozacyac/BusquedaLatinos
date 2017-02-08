@@ -7,8 +7,9 @@
     Title="MainWindow"
     Width="1000"
     Height="700"
+    Icon="c6_IK5JVf_256px.ico"
     Loaded="Window_Loaded"
-    WindowState="Maximized" Icon="c6_IK5JVf_256px.ico">
+    WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -38,12 +39,13 @@
                         Size="Large" />
                     <telerik:RadRibbonButton
                         x:Name="BtnVolumenes"
+                        Click="BtnVolumenes_Click"
                         LargeImage="Resources/analyze.png"
-                        Size="Large" Click="BtnVolumenes_Click" >
+                        Size="Large">
                         <StackPanel Orientation="Vertical">
-                            <TextBlock HorizontalAlignment="Center" Text="Acumular tesis"/>
-                            <TextBlock HorizontalAlignment="Center" Text="recientes"/>
-                         </StackPanel>
+                            <TextBlock HorizontalAlignment="Center" Text="Acumular tesis" />
+                            <TextBlock HorizontalAlignment="Center" Text="recientes" />
+                        </StackPanel>
                     </telerik:RadRibbonButton>
                 </telerik:RadRibbonGroup>
                 <telerik:RadRibbonGroup Header="Búsquedas" Visibility="Collapsed">

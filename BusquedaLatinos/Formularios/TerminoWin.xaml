@@ -25,6 +25,7 @@
             Margin="26,76,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            TextChanged="TxtTextChanged"
             TextWrapping="Wrap" />
         <Button
             x:Name="BtnCancelar"
@@ -61,6 +62,7 @@
             Margin="26,159,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            TextChanged="TxtTextChanged"
             TextWrapping="Wrap" />
         <Label
             x:Name="LblTermino_Copy1"
@@ -77,6 +79,7 @@
             Margin="26,321,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            TextChanged="TxtTextChanged"
             TextWrapping="Wrap" />
 
     </Grid>
