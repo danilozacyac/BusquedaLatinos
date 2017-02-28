@@ -12,6 +12,7 @@ using Telerik.Windows.Controls;
 using BusquedaLatinos.Formularios;
 using MantesisApi.Dto;
 using System.Collections.ObjectModel;
+using BusquedaLatinos.Impresiones;
 
 namespace BusquedaLatinos
 {
@@ -20,6 +21,8 @@ namespace BusquedaLatinos
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static List<string> Alfabeto = new List<string>() { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+
         private Terminos selectedTermino = null;
         private TesisDto selectedTesis = null;
 
@@ -99,7 +102,7 @@ namespace BusquedaLatinos
                 {
                     new TerminosModel().GetTesisRelacionadas(selectedTermino);
 
-                    if (selectedTermino.Iuses.Count > 0)
+                    if (selectedTermino.Iuses != null && selectedTermino.Iuses.Count > 0)
                     {
                         selectedTermino.Tesis = new TesisModel().GetDetalleTesisRel(selectedTermino.Iuses);
                         LblTotalRelaciones.Content = String.Format("{0} tesis relacionadas", selectedTermino.Tesis.Count());
@@ -109,8 +112,18 @@ namespace BusquedaLatinos
                         LblTotalRelaciones.Content = "No hay tesis relacionadas con este término";
                     }
                 }
+                else if(selectedTermino.Tesis != null && selectedTermino.Tesis.Count > 0)
+                {
+                    LblTotalRelaciones.Content = String.Format("{0} tesis relacionadas", selectedTermino.Tesis.Count());
+                }
+                else
+                {
+                    LblTotalRelaciones.Content = "No hay tesis relacionadas con este término";
+                }
                
                 GTesis.DataContext = selectedTermino.Tesis;
+                TxtDefinicion.Text = selectedTermino.Definicion;
+                TxtBiblio.Text = selectedTermino.Bibliografia;
             }
 
         }
@@ -144,6 +157,12 @@ namespace BusquedaLatinos
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
+            if (selectedTermino == null)
+            {
+                MessageBox.Show("Primero debes de seleccionar el término que deseas modificar");
+                return;
+            }
+
             TerminoWin addTerm = new TerminoWin(selectedTermino) { Owner = this };
             addTerm.ShowDialog();
         }
@@ -177,7 +196,7 @@ namespace BusquedaLatinos
 
         private void GTesis_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            UnaTesisWin unaTesisWin = new UnaTesisWin(selectedTermino.Tesis, selectedTermino.Tesis.ToList().IndexOf(selectedTesis),selectedTermino);
+            UnaTesisWin unaTesisWin = new UnaTesisWin(selectedTermino.Tesis, selectedTermino.Tesis.ToList().IndexOf(selectedTesis), selectedTermino) { Owner = this };
             unaTesisWin.ShowDialog();
         }
 
@@ -187,21 +206,40 @@ namespace BusquedaLatinos
         }
 
 
-        private void UpdateTerms()
-        {
-            TerminosModel model = new TerminosModel();
-            foreach (Terminos termino in TerminosSingleton.Terminos)
-            {
-                termino.Termino = termino.Termino.Trim();
-                termino.TerminoStr = StringUtilities.PrepareToAlphabeticalOrder(termino.Termino);
-                model.UpdateTermino(termino);
-            }
-        }
+        
 
         private void BtnVolumenes_Click(object sender, RoutedEventArgs e)
         {
             VolumenesWin win = new VolumenesWin() { Owner = this };
             win.ShowDialog();
+        }
+
+        private void BtnImprimirLetras_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            SelectLetras select = new SelectLetras(){Owner = this};
+            select.ShowDialog();
+        }
+
+        private void BtnImprimirTerm_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (selectedTermino == null)
+            {
+                MessageBox.Show("Selecciona el término que deseas imprimir", "Atención", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+
+            WordPrints print = new WordPrints();
+            print.ImprimeSelección(selectedTermino);
+        }
+
+        private void BtnImprimirTodo_Click(object sender, RoutedEventArgs e)
+        {
+            WordPrints prints = new WordPrints(MainWindow.Alfabeto);
+            prints.GeneraDocumentoWord();
         }
 
     }

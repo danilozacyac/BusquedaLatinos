@@ -133,6 +133,26 @@ namespace BusquedaLatinos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap all {
+            get {
+                object obj = ResourceManager.GetObject("all", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap alpha {
+            get {
+                object obj = ResourceManager.GetObject("alpha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap analyze {
             get {
                 object obj = ResourceManager.GetObject("analyze", resourceCulture);
@@ -656,6 +676,16 @@ namespace BusquedaLatinos.Properties {
         internal static System.Drawing.Bitmap perInfo {
             get {
                 object obj = ResourceManager.GetObject("perInfo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pointer {
+            get {
+                object obj = ResourceManager.GetObject("pointer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

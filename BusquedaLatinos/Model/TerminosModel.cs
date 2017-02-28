@@ -34,7 +34,7 @@ namespace BusquedaLatinos.Model
 
                 while (reader.Read())
                 {
-                    catTerminos.Add(new Terminos() { IdTermino = Convert.ToInt32(reader["IdTermino"]), Termino = reader["TErmino"].ToString(), TerminoStr = reader["TErminoStr"].ToString() });
+                    catTerminos.Add(new Terminos() { IdTermino = Convert.ToInt32(reader["IdTermino"]), Termino = reader["TErmino"].ToString(), TerminoStr = reader["TErminoStr"].ToString(), Definicion = reader["Definicion"].ToString(), Bibliografia = reader["Bibliografia"].ToString() });
                 }
             }
             catch (OleDbException ex)
@@ -131,14 +131,18 @@ namespace BusquedaLatinos.Model
                 dr.BeginEdit();
                 dr["Termino"] = termino.Termino;
                 dr["TerminoStr"] = termino.TerminoStr;
+                dr["Definicion"] = termino.Definicion;
+                dr["Bibliografia"] = termino.Bibliografia;
                 dr.EndEdit();
 
                 dataAdapter.UpdateCommand = connection.CreateCommand();
 
-                dataAdapter.UpdateCommand.CommandText = "UPDATE Terminos SET Termino = @Termino, TerminoStr = @TerminoStr WHERE IdTermino = @IdTermino";
+                dataAdapter.UpdateCommand.CommandText = "UPDATE Terminos SET Termino = @Termino, TerminoStr = @TerminoStr, Definicion = @Definicion, Bibliografia = @Bibliografia WHERE IdTermino = @IdTermino";
 
                 dataAdapter.UpdateCommand.Parameters.Add("@Termino", OleDbType.VarChar, 0, "Termino");
                 dataAdapter.UpdateCommand.Parameters.Add("@TerminoStr", OleDbType.VarChar, 0, "TerminoStr");
+                dataAdapter.UpdateCommand.Parameters.Add("@Definicion", OleDbType.VarChar, 0, "Definicion");
+                dataAdapter.UpdateCommand.Parameters.Add("@Bibliografia", OleDbType.VarChar, 0, "Bibliografia");
                 dataAdapter.UpdateCommand.Parameters.Add("@IdTermino", OleDbType.Numeric, 0, "IdTermino");
 
                 dataAdapter.Update(dataSet, "Terminos");
@@ -165,6 +169,11 @@ namespace BusquedaLatinos.Model
 
             return insertCompleted;
         }
+
+
+
+
+
 
         public bool DeleteFuncionario(Terminos termino)
         {

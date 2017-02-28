@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="BusquedaLatinos.exe" version="1.0.0.5" publicKeyToken="40b09b7b1c364ba7" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="BusquedaLatinos.exe" version="1.0.0.13" publicKeyToken="40b09b7b1c364ba7" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="c6_IK5JVf_256px.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BusquedaLatinos.exe" size="1932736">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BusquedaLatinos.exe" size="1982912">
       <assemblyIdentity name="BusquedaLatinos" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rpSNWveT+qqBi4mq2/HODtyxJZPHznYIaatffuEY4sI=</dsig:DigestValue>
+        <dsig:DigestValue>XlYeLQkeqdSGShYDqWzH5KPmYNA1ZOHRH8idhyT6o/M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -115,14 +115,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ScjnUtilities.dll" size="25088">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ScjnUtilities.dll" size="25600">
       <assemblyIdentity name="ScjnUtilities" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>i2n0ogF7zdTpVe4srB2yNxTDAJOBXQcHkwIwmwsd5Mg=</dsig:DigestValue>
+        <dsig:DigestValue>DGMSsySP9KlBn+UVYoqnhXdqn/VhmTr2J6gm51fr14s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -426,13 +426,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="BusquedaLatinos.exe.config" size="1308">
+  <file name="BusquedaLatinos.exe.config" size="1634">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>+2PvnI3eqniILanStGMa/a5ACSrIgz+nhWJMu1+uhr8=</dsig:DigestValue>
+      <dsig:DigestValue>+L+hevUTVK/nFHzNIO1YVPawxPfeah/HnyJHOaAOOj0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="c6_IK5JVf_256px.ico" size="19226">
@@ -444,4 +444,4 @@
       <dsig:DigestValue>VCnwJhIW3NZWLWeZjjBmYnLk8GZORLvIeE23zt4LjfY=</dsig:DigestValue>
     </hash>
   </file>
-<publisherIdentity name="CN=DOM_COORD\laVega" issuerKeyHash="1d7c2b609d7ac9c42970519de3fb16361bed02a3" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>OIyl1xPO1pBClBmO5NC9TfjLZMIB47D/10Frm0+t9TE=</DigestValue></Reference></SignedInfo><SignatureValue>R0LcNBtUdG+GzjzM2CsltmuKKQEvsJtfcHSoxAp5xunHSCT0PdjDbmbL+ev7e9n6GSP1TVt+kv38M8dQQTh0SSzGcLTguCkvnhWVoCE2qtYsLS35O6b6A99lPfcl2cwvalLW8JaGygaJalR4ACOIZJZlVep2aeTn/704A2YXu3w=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>zrPjMQssDHssdIXrLpH9ZhZaaw6/uJUeH992I3nol+CthOaenIbfMRLFxsjeGFIs9+zQug8yy7lkxQRxBu2yNLH1rmYD7kJtJyZqb9vtjmbacJA3woW1Lm2q9uz11Hc4vLhd64Ia6nVzJ0fWeCO+wtYJ+7ZGeCehnU3Tdf+1GuU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="31f5ad4f9b6b41d7ffb0e301c264cbf84dbdd0e48e19944290d6ce13d7a58c38" Description="" Url=""><as:assemblyIdentity name="BusquedaLatinos.exe" version="1.0.0.5" publicKeyToken="40b09b7b1c364ba7" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DOM_COORD\laVega</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>Z22XzVhIPUDTMgtTPC93yrr4T70Pk+DKKVlm9nnmU3E=</DigestValue></Reference></SignedInfo><SignatureValue>C1jHqJGI/7o/IjAWvL4oOzN/GWW8+b2F7QDFuz5MluQX7V9MUXg0pbcSaO2Jukm2Hx0I9L+6tliB/3rDtZIW7mtPx8vbbLMdkxLGy8nXZrXft8XesNoAsc8iIH02cghO++BKsDJ/iIJYpt+HQJmo89sAl8FNxEyKWiawOMtIK7E=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>zrPjMQssDHssdIXrLpH9ZhZaaw6/uJUeH992I3nol+CthOaenIbfMRLFxsjeGFIs9+zQug8yy7lkxQRxBu2yNLH1rmYD7kJtJyZqb9vtjmbacJA3woW1Lm2q9uz11Hc4vLhd64Ia6nVzJ0fWeCO+wtYJ+7ZGeCehnU3Tdf+1GuU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB2TCCAUKgAwIBAgIQaULnfmzxYrRHDSAut5k8ozANBgkqhkiG9w0BAQsFADArMSkwJwYDVQQDHiAARABPAE0AXwBDAE8ATwBSAEQAXABsAGEAVgBlAGcAYTAeFw0xNzAyMDExMzU4NDZaFw0xODAyMDExOTU4NDZaMCsxKTAnBgNVBAMeIABEAE8ATQBfAEMATwBPAFIARABcAGwAYQBWAGUAZwBhMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDOs+MxCywMeyx0hesukf1mFlprDr+4lR4f33YjeeiX4K2E5p6cht8xEsXGyN4YUiz37NC6DzLLuWTFBHEG7bI0sfWuZgPuQm0nJmpv2+2OZtpwkDfChbUubar27PXUdzi8uF3rghrqdXMnR9Z4I77C1gn7tkZ4J6GdTdN1/7Ua5QIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAFz+QzGRzgBRB6xJuB3Ylkl0+9KzTGml6JOVTR5ma842LBqtkOjqSVbfEwdVfL4echv9n1PPpVp5j34rKPDyhu90V2znY3QKI6rheizznqTnhrxY/VGkkNr54O5xjr6Sn3oloQTsYbp7JkRlKiUXdb2rlb0mckRAD+mLt7QBWT20</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+<publisherIdentity name="CN=DOM_COORD\laVega" issuerKeyHash="1d7c2b609d7ac9c42970519de3fb16361bed02a3" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>tCPsmx9cYZJpSh4G1lfHQzP2woIycqSdRizPlbB2L/k=</DigestValue></Reference></SignedInfo><SignatureValue>WpAalqE1i76vO/T+UCmBXhazJ+KmHFEzYHUDVyUI2foVrZ49RP1uAzMzjt3AXQN/HTeqUCImpJ3EilUspOSWVGCAMJktdo+I5mU6KNvUucrtSOitXxZ9STdmzUCWHrMuN1QawMHaOvZnaf8ghvgZ7K6gyL8hja226r3vri/z7nc=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>zrPjMQssDHssdIXrLpH9ZhZaaw6/uJUeH992I3nol+CthOaenIbfMRLFxsjeGFIs9+zQug8yy7lkxQRxBu2yNLH1rmYD7kJtJyZqb9vtjmbacJA3woW1Lm2q9uz11Hc4vLhd64Ia6nVzJ0fWeCO+wtYJ+7ZGeCehnU3Tdf+1GuU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="f92f76b095cf2c469da4723282c2f63343c757d6061e4a6992615c1f9bec23b4" Description="" Url=""><as:assemblyIdentity name="BusquedaLatinos.exe" version="1.0.0.13" publicKeyToken="40b09b7b1c364ba7" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DOM_COORD\laVega</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>2WEc4W4zWwCLT8aUUtkpemgHLCKWywvRXfJ32/WWpjk=</DigestValue></Reference></SignedInfo><SignatureValue>Us9ozU+n8iKLRtoUM2EMVHraVHb4/fQfXKoHQ3QHO5x2SHutrax8L/yYGa3dNnwGE0fVi9WIMA06UaOBHwJFp1rGvYywxZjxH3eR/bx9Uar4EpITDo8YXjwP3ndRbVYPwoMo5fiykF/JsUavK0m787FdT2dOEo7VfRP9qPq00go=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>zrPjMQssDHssdIXrLpH9ZhZaaw6/uJUeH992I3nol+CthOaenIbfMRLFxsjeGFIs9+zQug8yy7lkxQRxBu2yNLH1rmYD7kJtJyZqb9vtjmbacJA3woW1Lm2q9uz11Hc4vLhd64Ia6nVzJ0fWeCO+wtYJ+7ZGeCehnU3Tdf+1GuU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB2TCCAUKgAwIBAgIQaULnfmzxYrRHDSAut5k8ozANBgkqhkiG9w0BAQsFADArMSkwJwYDVQQDHiAARABPAE0AXwBDAE8ATwBSAEQAXABsAGEAVgBlAGcAYTAeFw0xNzAyMDExMzU4NDZaFw0xODAyMDExOTU4NDZaMCsxKTAnBgNVBAMeIABEAE8ATQBfAEMATwBPAFIARABcAGwAYQBWAGUAZwBhMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDOs+MxCywMeyx0hesukf1mFlprDr+4lR4f33YjeeiX4K2E5p6cht8xEsXGyN4YUiz37NC6DzLLuWTFBHEG7bI0sfWuZgPuQm0nJmpv2+2OZtpwkDfChbUubar27PXUdzi8uF3rghrqdXMnR9Z4I77C1gn7tkZ4J6GdTdN1/7Ua5QIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAFz+QzGRzgBRB6xJuB3Ylkl0+9KzTGml6JOVTR5ma842LBqtkOjqSVbfEwdVfL4echv9n1PPpVp5j34rKPDyhu90V2znY3QKI6rheizznqTnhrxY/VGkkNr54O5xjr6Sn3oloQTsYbp7JkRlKiUXdb2rlb0mckRAD+mLt7QBWT20</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

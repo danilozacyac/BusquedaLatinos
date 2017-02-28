@@ -27,7 +27,7 @@
     <ProductName>Términos Latinos</ProductName>
     <PublisherName>Suprema Corte de Justicia de la NAción</PublisherName>
     <SuiteName>CCST</SuiteName>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -81,8 +81,9 @@
     <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="ScjnUtilities">
-      <HintPath>..\..\ScjnUtilities\ScjnUtilities\bin\Debug\ScjnUtilities.dll</HintPath>
+    <Reference Include="ScjnUtilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Visual Studio 2013\Projects\ScjnUtilities\ScjnUtilities\bin\Debug\ScjnUtilities.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -126,11 +127,15 @@
     <Compile Include="Formularios\TerminoWin.xaml.cs">
       <DependentUpon>TerminoWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Impresiones\WordPrints.cs" />
     <Compile Include="Indices\MyLucene.cs" />
     <Compile Include="Indices\TesisIndx.cs" />
     <Compile Include="Model\TesisModel.cs" />
     <Compile Include="Dto\Terminos.cs" />
     <Compile Include="Model\VolumenModel.cs" />
+    <Compile Include="SelectLetras.xaml.cs">
+      <DependentUpon>SelectLetras.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Singleton\TerminosSingleton.cs" />
     <Compile Include="Model\TerminosModel.cs" />
     <Compile Include="UnaTesisWin.xaml.cs">
@@ -156,6 +161,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SelectLetras.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Theme\Padrontheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -485,6 +494,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="c6_IK5JVf_256px.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pointer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\alpha.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

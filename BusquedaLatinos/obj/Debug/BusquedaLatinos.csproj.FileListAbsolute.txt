@@ -132,7 +132,6 @@ C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\bin\Debug\Busqu
 C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\bin\Debug\BusquedaLatinos.exe
 C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\bin\Debug\BusquedaLatinos.pdb
 C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\bin\Debug\Lucene.Net.dll
-C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\bin\Debug\MantesisApi.dll
 C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\bin\Debug\Telerik.Windows.Controls.dll
 C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\bin\Debug\Telerik.Windows.Controls.Docking.dll
 C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\bin\Debug\Telerik.Windows.Controls.GridView.dll
@@ -189,3 +188,7 @@ C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\obj\Debug\Busqu
 C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\obj\Debug\BusquedaLatinos.csproj.GenerateResource.Cache
 C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\obj\Debug\BusquedaLatinos.exe.manifest
 C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\obj\Debug\BusquedaLatinos.application
+C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\bin\Debug\MantesisApi.dll
+C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\bin\Debug\ScjnUtilities.dll
+C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\obj\Debug\SelectLetras.baml
+C:\Users\lavega\Documents\GitHub\BusquedaLatinos\BusquedaLatinos\obj\Debug\SelectLetras.g.cs

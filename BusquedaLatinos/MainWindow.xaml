@@ -68,6 +68,17 @@
                         Content="Indexar"
                         Size="Large" />
                 </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="">
+                    <telerik:RadRibbonButton x:Name="BtnImprimirTerm"  Size="Large" Click="BtnImprimirTerm_Click" LargeImage="Resources/pointer.png" >
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock HorizontalAlignment="Center" Text="Término"/>
+                            <TextBlock HorizontalAlignment="Center" Text="seleccionado"/>
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton x:Name="BtnImprimirLetras" Content="Seleccionar letras" Size="Large" Click="BtnImprimirLetras_Click" LargeImage="Resources/alpha.png"/>
+                    <telerik:RadRibbonButton x:Name="BtnImprimirTodo" Content="Todo" Size="Large" Click="BtnImprimirTodo_Click" LargeImage="Resources/all.png"/>
+
+                </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
         </telerik:RadRibbonView>
 
